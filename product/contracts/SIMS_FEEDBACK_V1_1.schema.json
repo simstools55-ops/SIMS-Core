@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims.example/schema/SIMS_FEEDBACK_V1_1.schema.json",
+  "title": "SIMS_FEEDBACK_V1 version 1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "version", "article_id", "article_url", "completed_at", "changes", "new_values", "improvement_type", "confidence", "expected_effect", "next_action", "summary", "warnings", "estimated_minutes", "recommended_review_days"],
+  "properties": {
+    "format": {"const": "SIMS_FEEDBACK_V1"},
+    "version": {"const": "1.1"},
+    "article_id": {"type": "string", "minLength": 1},
+    "article_url": {"type": "string", "format": "uri"},
+    "completed_at": {"type": "string", "format": "date"},
+    "changes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["article_title", "seo_title", "description", "introduction", "headings", "faq", "internal_links", "body", "images"],
+      "properties": {
+        "article_title": {"type": "boolean"}, "seo_title": {"type": "boolean"}, "description": {"type": "boolean"},
+        "introduction": {"type": "boolean"}, "headings": {"type": "boolean"}, "faq": {"type": "boolean"},
+        "internal_links": {"type": "boolean"}, "body": {"type": "boolean"}, "images": {"type": "boolean"}
+      }
+    },
+    "new_values": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["article_title", "seo_title", "description", "main_query"],
+      "properties": {
+        "article_title": {"type": "string"}, "seo_title": {"type": "string"},
+        "description": {"type": "string"}, "main_query": {"type": "string"}
+      }
+    },
+    "improvement_type": {"enum": ["minor", "normal", "major"]},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "expected_effect": {
+      "type": "object", "additionalProperties": false, "required": ["ctr", "clicks"],
+      "properties": {"ctr": {"type": "string"}, "clicks": {"type": "string"}}
+    },
+    "next_action": {"enum": ["monitor", "remeasure", "rewrite", "none"]},
+    "summary": {"type": "string"},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "estimated_minutes": {"type": "integer", "minimum": 0},
+    "recommended_review_days": {"enum": [7, 14, 30]}
+  }
+}
