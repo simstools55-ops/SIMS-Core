@@ -1,5 +1,6 @@
-# Claude Upload Package
+# Claude登録手順
 
-- `01_Project_Instructions`：ファイル本文をClaude Projectの「手順」へ貼り付けます。
-- `02_Project_Knowledge`：全Markdownを「コンテキスト」へ追加します。
-- `03_Request_Templates`：利用者向け参考資料です。通常はコンテキスト登録不要です。
+1. `01_Project_Instructions/CLAUDE_PROJECT_INSTRUCTIONS.md`の本文をClaude Projectの「手順」へ貼り付けます。
+2. `02_Project_Knowledge/`の6ファイルをClaude Projectの「コンテキスト」へ登録します。
+3. `03_Request_Templates/`は見本です。通常は登録不要です。
+4. SIMS-Blog-Managerが生成した改善依頼文を、新しいチャットへそのまま貼り付けます。

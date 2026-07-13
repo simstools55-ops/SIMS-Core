@@ -1,8 +1,7 @@
 # Version
 
 - Product: SIMS-Core
-- Version: 0.1.0-production-architecture
-- Release: Production Architecture Release 1
+- Version: 0.2.0-production-preview
+- Release: Production Claude Package R2
+- Status: UAT Ready
 - Date: 2026-07-14
-- Input Contract: SIMS_REQUEST_TEXT_V1
-- Feedback Contract: SIMS_FEEDBACK_V1 / 1.1

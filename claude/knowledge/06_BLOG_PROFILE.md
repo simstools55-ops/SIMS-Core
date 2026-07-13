@@ -1,8 +1,8 @@
 # Blog Profile
 
-このファイルは利用者が必要に応じて編集するブログ固有Knowledgeです。
+このファイルは利用者がブログごとに編集する任意Knowledgeです。未入力欄は推測せず、依頼文と記事本文を優先してください。
 
-## Blog
+## 基本情報
 
 - Blog name:
 - Base URL:
@@ -10,15 +10,29 @@
 - Theme:
 - Main categories:
 - Target readers:
+- Primary revenue model:
+
+## 表現
+
 - Writing tone:
-
-## Editorial Rules
-
 - Preferred terminology:
 - Prohibited expressions:
-- Title rules:
+- First-person style:
+- Reader address style:
+
+## SEO・編集
+
+- Article title rules:
+- SEO title rules:
+- Description rules:
+- Heading rules:
+- FAQ rules:
 - Internal link rules:
 - Affiliate/advertising rules:
-- Other constraints:
+- Citation/source rules:
 
-未設定の項目は推測せず、改善依頼と記事本文を優先してください。
+## 運用上の制約
+
+- HTML/Markdown requirements:
+- CMS-specific restrictions:
+- Other constraints:

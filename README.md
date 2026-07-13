@@ -1,29 +1,32 @@
 # SIMS-Core
 
-SIMS-Coreは、SIMS-Blog-Managerが生成する記事改善依頼を受け取り、Claudeなどの生成AIで記事改善を実行するための製品リポジトリです。
+SIMS-Coreは、SIMS-Blog-Managerまたは利用者から渡されたSEO改善依頼を、ClaudeなどのAIで実行するためのProductionパッケージです。
 
-## Production Architecture Release 1
+## 現在のリリース
 
-本リリースでは、旧SIMS-Claude-EngineのEngine中心構成を整理し、次の現行運用を正式仕様として固定します。
+Production Claude Package R2（UAT Ready）
 
-- 入力：人間と複数AIが読める自然文形式 `SIMS_REQUEST_TEXT_V1`
-- 出力：記事改善結果と、回答末尾の `SIMS_FEEDBACK_V1` version `1.1`
-- SIMS-Blog-Manager側の入力JSON化は必須としない
-- Claude固有設定と、AI非依存の製品契約を分離する
-- 内部Engineは利用者に意識させない
+## 現行インターフェース
 
-## リポジトリ構成
+- 入力：`SIMS_REQUEST_TEXT_V1`（自然文形式）
+- 出力：`SIMS_FEEDBACK_V1` version `1.1`（回答末尾のJSON）
 
-- `claude/`：Claude Projectへ設定する実装資産
-- `product/`：AI非依存の製品仕様、契約、設計、移行資料
-- `tests/`：実記事UAT用フィクスチャと期待結果
-- `docs/`：セットアップ・運用資料
-- `distribution/`：Claudeへ登録するファイルだけを集約した配布領域
+SIMS-Blog-Manager側をJSON入力へ変更する必要はありません。
 
 ## Claudeへの登録
 
-1. `distribution/SIMS-Core-Claude-Upload/01_Project_Instructions/CLAUDE_PROJECT_INSTRUCTIONS.md` の本文をClaude Projectの「手順」へ貼り付けます。
-2. `02_Project_Knowledge/` 内のMarkdownをClaude Projectの「コンテキスト」へ登録します。
-3. 実際の改善依頼はSIMS-Blog-Managerからコピーしてチャットへ貼り付けます。
+`distribution/SIMS-Core-Claude-Upload/`だけを使用します。
 
-Release 1はProduction設計の確定版です。実記事UATを経て、Knowledgeと出力品質を調整します。
+1. `01_Project_Instructions/CLAUDE_PROJECT_INSTRUCTIONS.md`をClaude Projectの「手順」へ貼り付ける。
+2. `02_Project_Knowledge/`の6ファイルを「コンテキスト」へ登録する。
+3. SIMS-Blog-Managerの改善依頼文をClaudeへ貼り付ける。
+
+詳細は`docs/setup-guide.md`を参照してください。
+
+## 開発資産
+
+- `product/contracts/`：正式な入出力契約
+- `claude/`：Claude向け原本
+- `tests/`：実記事UAT
+- `tools/validate_feedback.py`：Feedback JSON検証
+- `distribution/`：利用者向けClaude登録パッケージ
